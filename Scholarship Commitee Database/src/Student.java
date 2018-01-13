@@ -1,6 +1,8 @@
 /**
-*
-*/
+ * 
+ * @author sujeethan
+ *
+ */
 public abstract class Student {
 	private String fName;
 	private String lName;
