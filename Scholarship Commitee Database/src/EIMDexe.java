@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * This is the main file that will run the entire program
  * It will ask the user what command to run, then it will run those commands and return values as necessary
