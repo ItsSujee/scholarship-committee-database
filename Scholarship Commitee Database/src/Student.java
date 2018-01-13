@@ -1,9 +1,4 @@
-/**
- * 
- * @author sujeethan
- *
- */
-public abstract class Student {
+public class Student {
 	private String fName;
 	private String lName;
 	private int studentNum;
