@@ -5,7 +5,7 @@ public class StudentDatabase {
 	Scanner in = new Scanner(System.in);
 	
 	ArrayList<Student> stuList = new ArrayList<Student>();
-	
+	/*****************CHANGE ALL INPUT VALUES TO PARSE INT************************/
 	public void addCandidate() {
 		System.out.println("Please enter student grade:");
 		int stuGrade = in.nextInt();
