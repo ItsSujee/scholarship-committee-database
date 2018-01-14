@@ -21,8 +21,17 @@ public class Student {
 	public int getStudentNum() {
 		return this.studentNum;
 	}
+	public double getAvg(){
+		return this.avgMarks;
+	}
+	public int getVolHrs(){
+		return this.volHrs;
+	}
+	public int getHrsEmp(){
+		return this.hrsEmplyed;
+	}
 	
-	public void changeAvg(int newAvg){
+	public void changeAvg(double newAvg){
 		this.avgMarks = newAvg;
 	}
 	public void changeVolHrs(int newHrs){

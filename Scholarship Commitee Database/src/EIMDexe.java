@@ -144,6 +144,6 @@ public class EIMDexe {
 	
 	public static void listCandidates() {}
 	
-	public static void printCandidate(Student studentInput) {}
+	public static void clearList() {}
 	
 }

@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class StudentDatabase {
 	Scanner in = new Scanner(System.in);
 	
-	ArrayList<Student> stuList = new ArrayList<Student>();
-	/*****************CHANGE ALL INPUT VALUES TO PARSE INT************************/
+	ArrayList <Student> stuList;
+	
 	public void addCandidate() {
 		System.out.println("Please enter student grade:");
 		int stuGrade = in.nextInt();
@@ -123,27 +123,88 @@ public class StudentDatabase {
 	}
 	
 	public void highestAvg() {
-		
+		double avg = 0;
+		int index = 0;
+		// goes through the whole array list
+		for(int i = 0; i < stuList.size(); i++) {
+			if(stuList.get(i).getAvg() > avg){
+				avg = stuList.get(i).getAvg();
+				index = i;
+			}
+		}
+		System.out.println(stuList.get(index).toString()); // print out the student info
 	}
 	
 	public void highestVolHrs() {
-		
+		int volHrs = 0;
+		int index = 0;
+		for(int i = 0; i < stuList.size(); i++) {
+			if(stuList.get(i).getVolHrs() > volHrs){
+				volHrs = stuList.get(i).getVolHrs();
+				index = i;
+			}
+		}
+		System.out.println(stuList.get(index).toString()); 
 	}
 	
 	public void highestEmplHrs() {
-		
+		int emplHrs = 0;
+		int index = 0;
+		for(int i = 0; i < stuList.size(); i++) {
+			if(stuList.get(i).getHrsEmp() > emplHrs){
+				emplHrs = stuList.get(i).getHrsEmp();
+				index = i;
+			}
+		}
+		System.out.println(stuList.get(index).toString()); 
 	}
 	
-	public void findCandidate() {
+	
+	public int findCandidate(int stuNum) {
+		for(int i = 0; i < stuList.size(); i++) {
+			if(stuList.get(i).getStudentNum() == stuNum){
+				System.out.println(stuList.get(i).toString()); 
+				return 0;
+			}
+		}
+		return -1;
 		
 	}
 	
 	public void sortAvg() {
-		
+		for(int i = 1; i < stuList.size(); i++){
+			double k = stuList.get(i).getAvg();
+			int j = i-1;
+			
+			while(j >= 0 && stuList.get(j).getAvg() > k){
+				stuList.set(j+1, stuList.get(j));
+				j = j-1;
+			}
+			stuList.set(j+1, stuList.get(i));
+			
+		}
 	}
 	
 	public void sortVolHrs() {
-		
+		for(int i = 1; i < stuList.size(); i++){
+			double k = stuList.get(i).getVolHrs();
+			int j = i-1;
+			
+			while(j >= 0 && stuList.get(j).getVolHrs() > k){
+				stuList.set(j+1, stuList.get(j));
+				j = j-1;
+			}
+			stuList.set(j+1, stuList.get(i));
+			
+		}
+	}
+	public void listCandidates() {
+		for(int i = 0; i < stuList.size(); i++) {
+			System.out.println(stuList.get(i).toString());
+		}
+	}
+	public void clearList() {
+		stuList.clear();
 	}
 	
 	public void loadFile() {
@@ -154,9 +215,6 @@ public class StudentDatabase {
 		
 	}
 	
-	public String toString() {
-		String s = "hi";
-		return s;
-	}
+
 
 }

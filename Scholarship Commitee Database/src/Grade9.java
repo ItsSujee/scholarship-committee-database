@@ -1,4 +1,3 @@
-
 public class Grade9 extends Student {
 	
 	private int mathEQAO;
