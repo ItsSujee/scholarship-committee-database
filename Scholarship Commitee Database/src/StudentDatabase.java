@@ -222,7 +222,7 @@ public class StudentDatabase {
 
 		}
 
-		else {
+		else if(grade12){
 
 			System.out.println("Enter new top post secondary choice:");
 
