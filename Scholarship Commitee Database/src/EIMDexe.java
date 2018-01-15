@@ -189,6 +189,10 @@ public class EIMDexe {
 		output[6] = "6: Search by Student Number";
 
 		output[7] = "7: Search by Most Employment Hours";
+		
+		//output[8] = "";
+		
+		//output[] = "";
 
 		output[8] = "8: Sort by Average";
 
