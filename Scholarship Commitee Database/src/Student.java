@@ -4,7 +4,7 @@
  * @author
  *
  */
-public abstract class Student {
+public class Student {
 	//Names dont need to be private
 	String fName;
 
