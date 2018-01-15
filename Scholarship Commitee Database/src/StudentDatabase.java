@@ -13,91 +13,86 @@ public class StudentDatabase {
 
 	static Scanner in = new Scanner(System.in);
 
-	
 
-	static ArrayList <Student> stuList;
 
-	
+	static ArrayList <Student> stuList = new ArrayList <Student>();
 
-	public void addCandidate() {
 
-		System.out.println("Please enter student grade:");
 
-		int stuGrade = in.nextInt();
+	public static void addCandidate() {
 
-		System.out.println("Please enter student number:");
+		System.out.print("\n" + "Please enter student grade:");
+		int stuGrade = Integer.parseInt(in.nextLine());
 
-		int stuNum = in.nextInt();
+		System.out.print("Please enter student number:");
+		int stuNum = Integer.parseInt(in.nextLine());
 
-		System.out.println("Please enter average marks:");
+		System.out.print("Please enter average marks:");
+		double avgMarks = Double.parseDouble(in.nextLine());
 
-		double avgMarks = in.nextInt();
+		System.out.print("Please enter volunteer hours:");
+		int volHrs = Integer.parseInt(in.nextLine());
 
-		System.out.println("Please enter voluenteer hours:");
+		System.out.print("Please enter number of extracurriculars:");
+		int ECs = Integer.parseInt(in.nextLine());
 
-		int volHrs = in.nextInt();
+		System.out.print("Please enter hours employed:");
+		int hrsEmplyed = Integer.parseInt(in.nextLine());
 
-		System.out.println("Please enter number of extracurriculars:");
-
-		int ECs = in.nextInt();
-
-		System.out.println("Please enter hours employed:");
-
-		int hrsEmplyed = in.nextInt();
-
-		System.out.println("Please enter students first name:");
-
+		System.out.print("Please enter students first name:");
 		String fName = in.nextLine();
 
-		System.out.println("Please enter students last name:");
-
+		System.out.print("Please enter students last name:");
 		String lName = in.nextLine();
 
-		System.out.println("Please enter students date of birth in format DD/MM/YY:");
-
+		System.out.print("Please enter students date of birth in format DD/MM/YY:");
 		String DOB = in.nextLine();
 
 		if(stuGrade == 9) {
 
-			System.out.println("Please enter math EQAO score:");
+			System.out.print("Please enter math EQAO score:");
 
-			int mEQAO = in.nextInt();
+			int mEQAO = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mEQAO));
+			
+			System.out.println("\n" + "Grade 9 Student Added" + "\n");
 
 		}
 
 		else if(stuGrade == 10) {
 
-			System.out.println("Please enter OSSLT score:");
+			System.out.print("Please enter OSSLT score:");
 
-			int OSSLTscore = in.nextInt();
+			int OSSLTscore = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, OSSLTscore));
+			
+			System.out.println("\n" + "Grade 10 Student Added" + "\n");
 
 		}
 
 		else if(stuGrade == 11) {
 
 			stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+			
+			System.out.println("\n" + "Grade 11 Student Added" + "\n");
 
 		}
 
 		else {
 
-			System.out.println("Please enter top post secondary choice:");
+			System.out.print("Please enter top post secondary choice:");
 
 			String topPost = in.nextLine();
 
 			stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
+			
+			System.out.println("\n" + "Grade 12 Student Added" + "\n");
 
 		}
 
-		
-
 	}
-
-	
 
 	public void removeCandidate(int stuNum) {
 
@@ -111,17 +106,15 @@ public class StudentDatabase {
 
 		}
 
-	
-
 	}
 
-	
+
 
 	public void modifyCandidate() {
 
 		System.out.println("Enter student number: ");
 
-		int stuNum = in.nextInt();
+		int stuNum = Integer.parseInt(in.nextLine());
 
 		boolean grade12 = false;
 
@@ -155,13 +148,13 @@ public class StudentDatabase {
 
 		}
 
-		int choice = in.nextInt();
+		int choice = Integer.parseInt(in.nextLine());
 
 		if(choice == 1) {
 
 			System.out.println("Enter new marks average:");
 
-			int newAvg = in.nextInt();
+			int newAvg = Integer.parseInt(in.nextLine());
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -179,7 +172,7 @@ public class StudentDatabase {
 
 			System.out.println("Enter new number of voulunter hours:");
 
-			int newHrs = in.nextInt();
+			int newHrs = Integer.parseInt(in.nextLine());
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -197,7 +190,7 @@ public class StudentDatabase {
 
 			System.out.println("Enter new number of extracurriculars:");
 
-			int newECs = in.nextInt();
+			int newECs = Integer.parseInt(in.nextLine());
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -215,7 +208,7 @@ public class StudentDatabase {
 
 			System.out.println("Enter new number of hours employed:");
 
-			int newHrs = in.nextInt();
+			int newHrs = Integer.parseInt(in.nextLine());
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -233,7 +226,7 @@ public class StudentDatabase {
 
 			System.out.println("Enter new top post secondary choice:");
 
-			int newAvg = in.nextInt();
+			int newAvg = Integer.parseInt(in.nextLine());
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -249,7 +242,7 @@ public class StudentDatabase {
 
 	}
 
-	
+
 
 	public void highestAvg() {
 
@@ -275,7 +268,7 @@ public class StudentDatabase {
 
 	}
 
-	
+
 
 	public void highestVolHrs() {
 
@@ -299,7 +292,7 @@ public class StudentDatabase {
 
 	}
 
-	
+
 
 	public void highestEmplHrs() {
 
@@ -323,9 +316,9 @@ public class StudentDatabase {
 
 	}
 
-	
 
-	
+
+
 
 	public int findCandidate(int stuNum) {
 
@@ -343,11 +336,11 @@ public class StudentDatabase {
 
 		return -1;
 
-		
+
 
 	}
 
-	
+
 
 	public void sortAvg() {
 
@@ -357,7 +350,7 @@ public class StudentDatabase {
 
 			int j = i-1;
 
-			
+
 
 			while(j >= 0 && stuList.get(j).getAvg() > k){
 
@@ -369,13 +362,13 @@ public class StudentDatabase {
 
 			stuList.set(j+1, stuList.get(i));
 
-			
+
 
 		}
 
 	}
 
-	
+
 
 	public void sortVolHrs() {
 
@@ -385,7 +378,7 @@ public class StudentDatabase {
 
 			int j = i-1;
 
-			
+
 
 			while(j >= 0 && stuList.get(j).getVolHrs() > k){
 
@@ -397,7 +390,7 @@ public class StudentDatabase {
 
 			stuList.set(j+1, stuList.get(i));
 
-			
+
 
 		}
 
@@ -419,136 +412,136 @@ public class StudentDatabase {
 
 	}
 
-	
+
 
 	public static void loadFile(String fn) {
 
 		// TODO Auto-generated method stub
-				double avgMarks=0;
-				int stuNum =0, grade =0, size=0, ECs =0, volHrs, hrsEmplyed;
-				String fName=null, lName=null, DOB = null;
+		double avgMarks=0;
+		int stuNum =0, grade =0, size=0, ECs =0, volHrs, hrsEmplyed;
+		String fName=null, lName=null, DOB = null;
 
-				Scanner s = null;
-				try {
+		Scanner s = null;
+		try {
 
-					s = new Scanner(new BufferedReader(new FileReader(fn))); //finds file name  
-					//Initializes size to arrays
-					size = Integer.parseInt(s.next());
-					System.out.print("Loading staff from file: "+fn+" with "+size+" students.");
-					System.out.println();
-					for(int i = 0; i < size; i++)
-					{
-						//Collects required fields 
-						fName = s.next();
-						lName  = s.next();
-						grade = Integer.parseInt(s.next());
-						stuNum = Integer.parseInt(s.next());
-						avgMarks = Double.parseDouble(s.next());
-						volHrs = Integer.parseInt(s.next());
-						ECs= Integer.parseInt(s.next());
-						hrsEmplyed = Integer.parseInt(s.next());
-						if(grade == 9) {
-							System.out.println("Please enter math EQAO score:");
-							int mEQAO = in.nextInt();
-							stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mEQAO));
-						}
-						else if(grade == 10) {
-							System.out.println("Please enter OSSLT score:");
-							int OSSLTscore = in.nextInt();
-							stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, OSSLTscore));
-						}
-
-						else if(grade == 11) {
-							stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
-						}
-
-						else {
-
-							System.out.println("Please enter top post secondary choice:");
-							String topPost = in.nextLine();
-							stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
-
-						}
-
-					}
-
-					//if file is not found
-				} catch( FileNotFoundException e){
-					System.out.println(":( It seems like the file is missing. :(");
-				} finally {
-					if (s!=null){
-						s.close();//closes file
-					}
+			s = new Scanner(new BufferedReader(new FileReader(fn))); //finds file name  
+			//Initializes size to arrays
+			size = Integer.parseInt(s.next());
+			System.out.print("Loading staff from file: "+fn+" with "+size+" students.");
+			System.out.println();
+			for(int i = 0; i < size; i++)
+			{
+				//Collects required fields 
+				fName = s.next();
+				lName  = s.next();
+				grade = Integer.parseInt(s.next());
+				stuNum = Integer.parseInt(s.next());
+				avgMarks = Double.parseDouble(s.next());
+				volHrs = Integer.parseInt(s.next());
+				ECs= Integer.parseInt(s.next());
+				hrsEmplyed = Integer.parseInt(s.next());
+				if(grade == 9) {
+					System.out.println("Please enter math EQAO score:");
+					int mEQAO = Integer.parseInt(in.nextLine());
+					stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mEQAO));
+				}
+				else if(grade == 10) {
+					System.out.println("Please enter OSSLT score:");
+					int OSSLTscore = Integer.parseInt(in.nextLine());
+					stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, OSSLTscore));
 				}
 
-			
+				else if(grade == 11) {
+					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+				}
+
+				else {
+
+					System.out.println("Please enter top post secondary choice:");
+					String topPost = in.nextLine();
+					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
+
+				}
+
+			}
+
+			//if file is not found
+		} catch( FileNotFoundException e){
+			System.out.println(":( It seems like the file is missing. :(");
+		} finally {
+			if (s!=null){
+				s.close();//closes file
+			}
+		}
+
+
 
 	}
 
-	
+
 
 	public static void saveFile(String fn) {
 
 		// TODO Auto-generated method stub
-				System.out.println("Saving staff to file: "+fn);
-				System.out.println();
+		System.out.println("Saving staff to file: "+fn);
+		System.out.println();
 
-				File file = new File(fn); //sets file name
-				PrintWriter pw=null;
-				try {
-					pw = new PrintWriter(file);
-					// write size to file
-					pw.println(stuList.size()); //writes # students
+		File file = new File(fn); //sets file name
+		PrintWriter pw=null;
+		try {
+			pw = new PrintWriter(file);
+			// write size to file
+			pw.println(stuList.size()); //writes # students
 
-					for(int i=0; stuList.size()>i; i++){ 
-						Student st = stuList.get(i);
-						//writes super fields, employee number, first name, and last name
-						pw.println(st.fName); 
-						pw.println(st.lName);
-						pw.println(st.getDOB());
-						
-						if(st instanceof Grade9) {
-							pw.println("Grade 9");
-						}
-						if(st instanceof Grade10) {
-							pw.println("Grade 10");
-						}
-						if(st instanceof Grade11) {
-							pw.println("Grade 11");
-						}
-						if(st instanceof Grade12) {
-							pw.println("Grade 12");
-						}
-						pw.println(st.getStudentNum());
-						pw.println(st.getAvg());
-						pw.println(st.getVolHrs());
-						pw.println(st.getNumECs());
-						pw.println(st.getHrsEmp());
-						if(st instanceof Grade9) {
-							pw.println(Grade9.mathEQAO);
-						}
-						if(st instanceof Grade10) {
-							pw.println(Grade10.OSSLT);
-						}
-						if(st instanceof Grade11) {
-							pw.println("Grade 11: no score");
-						}
-						if(st instanceof Grade12) {
-							pw.println(Grade12.topPostChoice);
-						}
+			for(int i=0; stuList.size()>i; i++){ 
+				Student st = stuList.get(i);
+				//writes super fields, employee number, first name, and last name
+				pw.println(st.fName); 
+				pw.println(st.lName);
+				pw.println(st.getDOB());
 
-					}//end of for loop
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} finally {
-					if(pw != null){
-						pw.close();
-					}
-				} 
+				if(st instanceof Grade9) {
+					pw.println("Grade 9");
+				}
+				if(st instanceof Grade10) {
+					pw.println("Grade 10");
+				}
+				if(st instanceof Grade11) {
+					pw.println("Grade 11");
+				}
+				if(st instanceof Grade12) {
+					pw.println("Grade 12");
+				}
+				pw.println(st.getStudentNum());
+				pw.println(st.getAvg());
+				pw.println(st.getVolHrs());
+				pw.println(st.getNumECs());
+				pw.println(st.getHrsEmp());
+				if(st instanceof Grade9) {
+					pw.println(Grade9.mathEQAO);
+				}
+				if(st instanceof Grade10) {
+					pw.println(Grade10.OSSLT);
+				}
+				if(st instanceof Grade11) {
+					pw.println("Grade 11: no score");
+				}
+				if(st instanceof Grade12) {
+					pw.println(Grade12.topPostChoice);
+				}
+
+			}//end of for loop
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if(pw != null){
+				pw.close();
+			}
+		} 
 
 	}
 
-	
+
 
 
 
