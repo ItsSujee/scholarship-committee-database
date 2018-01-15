@@ -1,11 +1,11 @@
-
+/**
+ * 
+ * @author
+ *
+ */
 public class Grade12 extends Student {
 
-	
-
  static String topPostChoice;
-
-	
 
 	public Grade12(int stuNumber, String fNme, String lNme, String DOB, double avgMrks, int vlHrs, int nmECs, int hrsEmp, String tPC) {
 
@@ -14,11 +14,6 @@ public class Grade12 extends Student {
 		Grade12.topPostChoice = tPC;
 
 	}
-
-	
-
-
-	
 
 	public String toString() {
 
