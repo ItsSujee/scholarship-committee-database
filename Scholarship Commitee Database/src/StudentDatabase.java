@@ -1,23 +1,16 @@
 import java.util.ArrayList;
-
 import java.util.Scanner;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
-
 public class StudentDatabase {
 
 	static Scanner in = new Scanner(System.in);
 
-
-
 	static ArrayList <Student> stuList = new ArrayList <Student>();
-
-
 
 	public static void addCandidate() {
 
@@ -27,6 +20,15 @@ public class StudentDatabase {
 		System.out.print("Please enter student number:");
 		int stuNum = Integer.parseInt(in.nextLine());
 
+		System.out.print("Please enter students first name:");
+		String fName = in.nextLine();
+
+		System.out.print("Please enter students last name:");
+		String lName = in.nextLine();
+
+		System.out.print("Please enter students date of birth in format DD/MM/YY:");
+		String DOB = in.nextLine();
+		
 		System.out.print("Please enter average marks:");
 		double avgMarks = Double.parseDouble(in.nextLine());
 
@@ -38,15 +40,6 @@ public class StudentDatabase {
 
 		System.out.print("Please enter hours employed:");
 		int hrsEmplyed = Integer.parseInt(in.nextLine());
-
-		System.out.print("Please enter students first name:");
-		String fName = in.nextLine();
-
-		System.out.print("Please enter students last name:");
-		String lName = in.nextLine();
-
-		System.out.print("Please enter students date of birth in format DD/MM/YY:");
-		String DOB = in.nextLine();
 
 		if(stuGrade == 9) {
 
@@ -73,8 +66,12 @@ public class StudentDatabase {
 		}
 
 		else if(stuGrade == 11) {
+			
+			System.out.print("Please enter Math Contest score:");
 
-			stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+			int mathContest = Integer.parseInt(in.nextLine());
+
+			stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mathContest));
 			
 			System.out.println("\n" + "Grade 11 Student Added" + "\n");
 
@@ -84,7 +81,7 @@ public class StudentDatabase {
 
 			System.out.print("Please enter top post secondary choice:");
 
-			String topPost = in.nextLine();
+			int topPost = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
 			
@@ -107,8 +104,6 @@ public class StudentDatabase {
 		}
 
 	}
-
-
 
 	public void modifyCandidate() {
 
@@ -452,15 +447,14 @@ public class StudentDatabase {
 				}
 
 				else if(grade == 11) {
-					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, i));
 				}
 
 				else {
 
 					System.out.println("Please enter top post secondary choice:");
-					String topPost = in.nextLine();
+					int topPost = Integer.parseInt(in.nextLine());
 					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
-
 				}
 
 			}
@@ -518,16 +512,16 @@ public class StudentDatabase {
 				pw.println(st.getNumECs());
 				pw.println(st.getHrsEmp());
 				if(st instanceof Grade9) {
-					pw.println(Grade9.mathEQAO);
+					pw.println(((Grade9)st).mathEQAO);
 				}
 				if(st instanceof Grade10) {
-					pw.println(Grade10.OSSLT);
+					pw.println(((Grade10)st).osslt);
 				}
 				if(st instanceof Grade11) {
 					pw.println("Grade 11: no score");
 				}
 				if(st instanceof Grade12) {
-					pw.println(Grade12.topPostChoice);
+					pw.println(((Grade12)st).topPostChoice);
 				}
 
 			}//end of for loop
