@@ -1,11 +1,11 @@
+/**
+ * 
+ * @author
+ *
+ */
 public class Grade10 extends Student {
-
-	
-
 	
 	static int OSSLT;
-
-	
 
 	public Grade10(int stuNumber, String fNme, String lNme, String DOB, double avgMrks, int vlHrs, int nmECs, int hrsEmp, int osslt) {
 
@@ -14,7 +14,6 @@ public class Grade10 extends Student {
 		Grade10.OSSLT = osslt; 
 
 	}
-
 
 	public String toString() {
 
@@ -27,7 +26,5 @@ public class Grade10 extends Student {
 		return s;
 
 	}
-
-
 
 }
