@@ -320,21 +320,21 @@ public class StudentDatabase {
 
 
 
-	public int findCandidate(int stuNum) {
-
+	public void findCandidate(int stuNum) {
+		boolean notFound = true;
 		for(int i = 0; i < stuList.size(); i++) {
 
 			if(stuList.get(i).getStudentNum() == stuNum){
 
 				System.out.println(stuList.get(i).toString()); 
-
-				return 0;
-
+				notFound = false;
 			}
 
 		}
 
-		return -1;
+		if(notFound){
+			System.out.println("User not found in database.");
+		}
 
 
 
