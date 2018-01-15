@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-
-
 /**
 
  * This is the main file that will run the entire program
@@ -74,7 +72,7 @@ public class EIMDexe {
 				
 
 			case 1:
-
+				StudentDatabase.addCandidate();
 				break;
 			
 
@@ -128,13 +126,16 @@ public class EIMDexe {
 				String sn = sc.nextLine();
 				StudentDatabase.saveFile(sn);
 				break;
-
 				
-
+			case 12:
+				break;
+				
+			case 13:
+				aboutUs();
+				break;
+				
 			default:
-
 				error();
-
 				break;
 
 			}
@@ -161,7 +162,7 @@ public class EIMDexe {
 
 		//input == 0, say exit message
 
-		System.out.print("\n" + "Thank you for using the Educational Institution Management Database,");
+		System.out.print("\n" + "Thank you for using the Educational Institution Management Database");
 
 
 
@@ -199,7 +200,7 @@ public class EIMDexe {
 
 		output[12] = "12: List Candidates";
 
-		output[13] = "13: Print Specific Candidate" + "\n";
+		output[13] = "13: About Us" + "\n";
 
 		
 
@@ -209,13 +210,10 @@ public class EIMDexe {
 
 		}
 
-		
-
 		System.out.print("Your Command:");
 
 	}
 
-	
 
 	public static void error() {
 
@@ -223,57 +221,16 @@ public class EIMDexe {
 
 	}
 
-	
-
 	public static void confirmClose() {
 
-		System.out.print("\n" + "Are you sure that you want to exit?" + "\n" + "1) Yes" + "\n" +  "2) No" + "\n" + "\n" + "Your Command:");
+		System.out.print("\n" + "Did you make sure to save?" + "\n" + "Are you sure that you still want to exit?" + "\n" + "1: Yes" + "\n" +  "2: No" + "\n" + "\n" + "Your Command:");
 
 	}
 
-
-
-	public static void addCandidate(int studentNum) {}
-
-	
-
-	public static void removeCandidate(int studentNum) {}
-
-	
-
-	public static void modifyCandidate() {}
-
-	
-
-	public static void searchHighAverage() {}
-
-	
-
-	public static void searchMostVolunteerHours() {}
-
-	
-
-	public static void searchStudentNum(int studentNum) {}
-
-	
-
-	public static void searchMostEmploymentHours() {}
-
-	
-
-	public static void sortByAverage() {}
-
-	
-
-	public static void sortByVolunteerHours() {}
-
-	
-	public static void listCandidates() {}
-
-	
-
-	public static void clearList() {}
-
-	
-
+	public static void aboutUs() {
+		String s = "\n" + "Who are we?" + "\n" + "\n" + "We are a group of four young men who love to code:" + "\n" + "Sujeethan Vigneswaran" + "\n" + "Aarsh Patel" + "\n" + "Dhruv Bhavsar" + "\n" + "Harry Masaun";
+		String d = "\n" + "\n" + "Why EIMD?" + "\n" + "EIMD was designed for a scholarship commitee to be able to sift through applicants with ease" + "\n\n";
+		
+		System.out.print(s + d);
+	}
 }
