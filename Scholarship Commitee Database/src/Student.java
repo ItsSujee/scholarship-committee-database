@@ -1,5 +1,11 @@
-public class Student {
- //Names dont need to be private
+/**
+ * 
+ * 
+ * @author
+ *
+ */
+public abstract class Student {
+	//Names dont need to be private
 	String fName;
 
 	String lName;
