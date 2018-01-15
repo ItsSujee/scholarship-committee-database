@@ -28,7 +28,7 @@ public class StudentDatabase {
 
 		System.out.print("Please enter students date of birth in format DD/MM/YY:");
 		String DOB = in.nextLine();
-		
+
 		System.out.print("Please enter average marks:");
 		double avgMarks = Double.parseDouble(in.nextLine());
 
@@ -48,7 +48,7 @@ public class StudentDatabase {
 			int mEQAO = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mEQAO));
-			
+
 			System.out.println("\n" + "Grade 9 Student Added" + "\n");
 
 		}
@@ -60,19 +60,19 @@ public class StudentDatabase {
 			int OSSLTscore = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, OSSLTscore));
-			
+
 			System.out.println("\n" + "Grade 10 Student Added" + "\n");
 
 		}
 
 		else if(stuGrade == 11) {
-			
+
 			System.out.print("Please enter Math Contest score:");
 
 			int mathContest = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mathContest));
-			
+
 			System.out.println("\n" + "Grade 11 Student Added" + "\n");
 
 		}
@@ -84,7 +84,7 @@ public class StudentDatabase {
 			int topPost = Integer.parseInt(in.nextLine());
 
 			stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
-			
+
 			System.out.println("\n" + "Grade 12 Student Added" + "\n");
 
 		}
@@ -313,28 +313,20 @@ public class StudentDatabase {
 
 
 
+	public void findCandidate(int stuNum, int i) {  
 
+		if (i < stuList.size()) {
 
-	public void findCandidate(int stuNum) {
-		boolean notFound = true;
-		for(int i = 0; i < stuList.size(); i++) {
-
-			if(stuList.get(i).getStudentNum() == stuNum){
+			if (stuList.get(i).getStudentNum() == stuNum) {
 
 				System.out.println(stuList.get(i).toString()); 
-				notFound = false;
-			}
 
+			} else {
+				findCandidate(stuNum, i+1);   
+			}  
 		}
-
-		if(notFound){
-			System.out.println("User not found in database.");
-		}
-
-
-
+		System.out.println("User not found in database.");
 	}
-
 
 
 	public void sortAvg() {
