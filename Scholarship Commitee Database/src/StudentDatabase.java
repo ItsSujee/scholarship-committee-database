@@ -312,7 +312,7 @@ public class StudentDatabase {
 	}
 
 
-
+//i must == 0
 	public void findCandidate(int stuNum, int i) {  
 
 		if (i < stuList.size()) {
@@ -324,8 +324,11 @@ public class StudentDatabase {
 			} else {
 				findCandidate(stuNum, i+1);   
 			}  
+			
+		} else {
+			
+			System.out.println("User not found in database.");
 		}
-		System.out.println("User not found in database.");
 	}
 
 
