@@ -6,14 +6,27 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
+/**
+ * Class Name: StudentDatabase
+ * @Author: Sujeethan, Harry, Dhruv, Aarsh
+ * Date: January 16, 2018
+ * School: Lester B. Pearson C.I.
+ * Purpose:
+ * 
+ *
+ */
 public class StudentDatabase {
 
+	//input Scanner
 	static Scanner in = new Scanner(System.in);
 
+	//Create arrayList to store the list of Student objects
 	static ArrayList <Student> stuList = new ArrayList <Student>();
 
+	/**
+	 * Add a Candidate to the arrayList, all information must filled out
+	 */
 	public static void addCandidate() {
-
 		System.out.print("\n" + "Please enter student grade:");
 		int stuGrade = Integer.parseInt(in.nextLine());
 
@@ -79,7 +92,7 @@ public class StudentDatabase {
 
 		else {
 
-			System.out.print("Please enter top post secondary choice:");
+			System.out.print("Please enter top post secondary choice average:");
 
 			int topPost = Integer.parseInt(in.nextLine());
 
@@ -88,23 +101,31 @@ public class StudentDatabase {
 			System.out.println("\n" + "Grade 12 Student Added" + "\n");
 
 		}
-
 	}
 
+	/**
+	 * Remove a student from the database by student number
+	 * Prints out if the removal was successful or not
+	 * 
+	 * @param stuNum //parameter must be integer of the student number
+	 */
 	public void removeCandidate(int stuNum) {
-
+		boolean flag = false;
 		for(int i = 0; i < stuList.size(); i++) {
-
 			if(stuList.get(i).getStudentNum() == stuNum) {
-
 				stuList.remove(i);
-
+				flag = true;
+				System.out.println("Student successfully removed");
 			}
-
 		}
-
+		if (!flag) {
+			System.out.println("Student was not found");
+		}
 	}
 
+	/**
+	 * Modify the contents of a student
+	 */
 	public void modifyCandidate() {
 
 		System.out.println("Enter student number: ");
@@ -312,7 +333,7 @@ public class StudentDatabase {
 	}
 
 
-//i must == 0
+	//i must == 0
 	public void findCandidate(int stuNum, int i) {  
 
 		if (i < stuList.size()) {
@@ -324,9 +345,9 @@ public class StudentDatabase {
 			} else {
 				findCandidate(stuNum, i+1);   
 			}  
-			
+
 		} else {
-			
+
 			System.out.println("User not found in database.");
 		}
 	}
@@ -504,7 +525,7 @@ public class StudentDatabase {
 				pw.println(st.getStudentNum());
 				pw.println(st.getAvg());
 				pw.println(st.getVolHrs());
-				pw.println(st.getNumECs());
+				pw.println(st.getNumOfExtraCurr());
 				pw.println(st.getHrsEmp());
 				if(st instanceof Grade9) {
 					pw.println(((Grade9)st).mathEQAO);
@@ -516,7 +537,7 @@ public class StudentDatabase {
 					pw.println("Grade 11: no score");
 				}
 				if(st instanceof Grade12) {
-					pw.println(((Grade12)st).topPostChoice);
+					pw.println(((Grade12)st).topPostChoiceAvg);
 				}
 
 			}//end of for loop
