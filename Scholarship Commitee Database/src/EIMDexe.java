@@ -28,85 +28,85 @@ public class EIMDexe {
 			switch (userInput) {
 
 			case 0:
-
 				confirmClose();
-
 				int exitConfirm = Integer.parseInt(sc.nextLine());
-
 				if (exitConfirm == 1) {
-
 					toClose = true;
-
 				} else {
-
 					toClose = false;
-
 				}
-
 				break;
 
-				
-
-			case 1:
+			case 1: //Add Candidate
 				StudentDatabase.addCandidate();
 				break;
-			
 
-			case 2:
 
-				break;
-			
-
-			case 3:
-
-				break;
-				
-
-			case 4:
-
-				break;
-			
-
-			case 5:
-
+			case 2: //Remove Candidate
+				System.out.print("Please enter your student number:");
+				int inputStuNumForRemove = Integer.parseInt(sc.nextLine());
+				StudentDatabase.removeCandidate(inputStuNumForRemove);
 				break;
 
-				
 
-			case 6:
-
+			case 3: //Modify Candidate Info
+				StudentDatabase.modifyCandidate();
 				break;
-				
 
-			case 7:
 
+			case 4: //Search Highest Average
+				StudentDatabase.highestAverage();
 				break;
-			
 
-			case 8:
 
+			case 5: //Search most volunteer hours
+				StudentDatabase.highestVolHrs();
 				break;
-			
-			case 9:
 
+			case 6: //Search by Student Number
+				int stuNumForFindCan = Integer.parseInt(sc.nextLine());
+				StudentDatabase.findCandidate(stuNumForFindCan, 0);
 				break;
-			
-			case 10:
+
+
+			case 7: //Search by most employment hours
+				StudentDatabase.highestEmplHrs();
+				break;
+
+
+			case 8: //Sort by average
+				StudentDatabase.sortAvg();
+				break;
+
+			case 9: //Sort by volunteer hours
+				StudentDatabase.sortVolHrs();
+				break;
+
+			case 10: //Load File
 				System.out.println("Enter file name: ");
 				String fn = sc.nextLine();
 				StudentDatabase.loadFile(fn);
 				break;
-			
-			case 11:
+
+			case 11: //Save File
 				System.out.println("Enter file name:");
 				String sn = sc.nextLine();
 				StudentDatabase.saveFile(sn);
 				break;
-				
-			case 12:
+
+			case 12: //List Candidate
+				StudentDatabase.listCandidates();
 				break;
+
+			case 13: //Compare Students
 				
-			case 13:
+				break;
+
+			case 14: //Clear Database
+				StudentDatabase.clearList();
+				break;
+
+			case 15: //Help
 				aboutUs();
 				break;
 				
@@ -122,7 +122,7 @@ public class EIMDexe {
 
 			if (toClose == true) {break;}
 
-			
+
 
 			//ask for next command
 
@@ -148,7 +148,7 @@ public class EIMDexe {
 
 	public static void askForInput() {
 
-		String [] output = new String [14];
+		String [] output = new String [16];
 
 		output[0] = "0: Exit";
 
@@ -165,10 +165,6 @@ public class EIMDexe {
 		output[6] = "6: Search by Student Number";
 
 		output[7] = "7: Search by Most Employment Hours";
-		
-		//output[8] = "";
-		
-		//output[] = "";
 
 		output[8] = "8: Sort by Average";
 
@@ -180,9 +176,13 @@ public class EIMDexe {
 
 		output[12] = "12: List Candidates";
 
-		output[13] = "13: About Us" + "\n";
-
+		output[13] = "13: Compare Students";
 		
+		output[14] = "14: Clear Database";
+
+		output[15] = "15: Help" + "\n";
+
+
 
 		for (int i = 0; i < output.length; i++ ) {
 
@@ -210,7 +210,7 @@ public class EIMDexe {
 	public static void aboutUs() {
 		String s = "\n" + "Who are we?" + "\n" + "\n" + "We are a group of four young men who love to code:" + "\n" + "Sujeethan Vigneswaran" + "\n" + "Aarsh Patel" + "\n" + "Dhruv Bhavsar" + "\n" + "Harry Masaun";
 		String d = "\n" + "\n" + "Why EIMD?" + "\n" + "EIMD was designed for a scholarship commitee to be able to sift through applicants with ease" + "\n\n";
-		
+
 		System.out.print(s + d);
 	}
 }
