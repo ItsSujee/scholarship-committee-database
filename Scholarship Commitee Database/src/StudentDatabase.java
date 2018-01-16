@@ -109,26 +109,26 @@ public class StudentDatabase {
 	 * 
 	 * @param stuNum //parameter must be integer of the student number
 	 */
-	public void removeCandidate(int stuNum) {
+	public static void removeCandidate(int stuNum) {
 		boolean flag = false;
 		for(int i = 0; i < stuList.size(); i++) {
 			if(stuList.get(i).getStudentNum() == stuNum) {
 				stuList.remove(i);
 				flag = true;
-				System.out.println("Student successfully removed");
+				System.out.println("Student successfully removed" + "\n");
 			}
 		}
 		if (!flag) {
-			System.out.println("Student was not found");
+			System.out.println("Student was not found" + "\n");
 		}
 	}
 
 	/**
 	 * Modify the contents of a student
 	 */
-	public void modifyCandidate() {
+	public static void modifyCandidate() {
 
-		System.out.println("Enter student number: ");
+		System.out.print("Enter student number: ");
 
 		int stuNum = Integer.parseInt(in.nextLine());
 
@@ -148,7 +148,7 @@ public class StudentDatabase {
 
 		}
 
-		System.out.println("Select would you like to modify:");
+		System.out.println("Select what you would like to modify:");
 
 		System.out.println("1. Marks average");
 
@@ -164,11 +164,12 @@ public class StudentDatabase {
 
 		}
 
+		System.out.println("Your choice:");
 		int choice = Integer.parseInt(in.nextLine());
 
 		if(choice == 1) {
 
-			System.out.println("Enter new marks average:");
+			System.out.print("Enter new marks average:");
 
 			int newAvg = Integer.parseInt(in.nextLine());
 
@@ -186,7 +187,7 @@ public class StudentDatabase {
 
 		else if(choice == 2) {
 
-			System.out.println("Enter new number of voulunter hours:");
+			System.out.print("Enter new number of voulunter hours:");
 
 			int newHrs = Integer.parseInt(in.nextLine());
 
@@ -204,7 +205,7 @@ public class StudentDatabase {
 
 		else if(choice == 3) {
 
-			System.out.println("Enter new number of extracurriculars:");
+			System.out.print("Enter new number of extracurriculars:");
 
 			int newECs = Integer.parseInt(in.nextLine());
 
@@ -222,7 +223,7 @@ public class StudentDatabase {
 
 		else if(choice == 4) {
 
-			System.out.println("Enter new number of hours employed:");
+			System.out.print("Enter new number of hours employed:");
 
 			int newHrs = Integer.parseInt(in.nextLine());
 
@@ -240,7 +241,7 @@ public class StudentDatabase {
 
 		else if(grade12){
 
-			System.out.println("Enter new top post secondary choice:");
+			System.out.print("Enter new top post secondary choice:");
 
 			int newAvg = Integer.parseInt(in.nextLine());
 
@@ -260,7 +261,7 @@ public class StudentDatabase {
 
 
 
-	public void highestAvg() {
+	public static void highestAverage() {
 
 		double avg = 0;
 
@@ -286,7 +287,7 @@ public class StudentDatabase {
 
 
 
-	public void highestVolHrs() {
+	public static void highestVolHrs() {
 
 		int volHrs = 0;
 
@@ -308,9 +309,26 @@ public class StudentDatabase {
 
 	}
 
+	//i must == 0
+	public static void findCandidate(int stuNum, int i) {  
 
+		if (i < stuList.size()) {
 
-	public void highestEmplHrs() {
+			if (stuList.get(i).getStudentNum() == stuNum) {
+
+				System.out.println(stuList.get(i).toString()); 
+
+			} else {
+				findCandidate(stuNum, i+1);   
+			}  
+
+		} else {
+
+			System.out.println("User not found in database.");
+		}
+	}
+	
+	public static void highestEmplHrs() {
 
 		int emplHrs = 0;
 
@@ -332,28 +350,7 @@ public class StudentDatabase {
 
 	}
 
-
-	//i must == 0
-	public void findCandidate(int stuNum, int i) {  
-
-		if (i < stuList.size()) {
-
-			if (stuList.get(i).getStudentNum() == stuNum) {
-
-				System.out.println(stuList.get(i).toString()); 
-
-			} else {
-				findCandidate(stuNum, i+1);   
-			}  
-
-		} else {
-
-			System.out.println("User not found in database.");
-		}
-	}
-
-
-	public void sortAvg() {
+	public static void sortAvg() {
 
 		for(int i = 1; i < stuList.size(); i++){
 
@@ -381,7 +378,7 @@ public class StudentDatabase {
 
 
 
-	public void sortVolHrs() {
+	public static void sortVolHrs() {
 
 		for(int i = 1; i < stuList.size(); i++){
 
@@ -407,7 +404,7 @@ public class StudentDatabase {
 
 	}
 
-	public void listCandidates() {
+	public static void listCandidates() {
 
 		for(int i = 0; i < stuList.size(); i++) {
 
@@ -417,7 +414,7 @@ public class StudentDatabase {
 
 	}
 
-	public void clearList() {
+	public static void clearList() {
 
 		stuList.clear();
 
@@ -429,7 +426,7 @@ public class StudentDatabase {
 
 		// TODO Auto-generated method stub
 		double avgMarks=0;
-		int stuNum =0, grade =0, size=0, ECs =0, volHrs, hrsEmplyed;
+		int stuNum =0, grade =0, size=0, ECs =0, volHrs, hrsEmplyed; 
 		String fName=null, lName=null, DOB = null;
 
 		Scanner s = null;
@@ -446,6 +443,7 @@ public class StudentDatabase {
 				fName = s.next();
 				lName  = s.next();
 				grade = Integer.parseInt(s.next());
+				DOB = s.next();
 				stuNum = Integer.parseInt(s.next());
 				avgMarks = Double.parseDouble(s.next());
 				volHrs = Integer.parseInt(s.next());
