@@ -352,58 +352,37 @@ public class StudentDatabase {
 
 	public static void sortAvg() {
 
-		for(int i = 1; i < stuList.size(); i++){
-
-			double k = stuList.get(i).getAvg();
-
-			int j = i-1;
-
-
-
-			while(j >= 0 && stuList.get(j).getAvg() > k){
-
-				stuList.set(j+1, stuList.get(j));
-
-				j = j-1;
-
-			}
-
-			stuList.set(j+1, stuList.get(i));
+		 int i, j;
+		    for (i = 1; i < stuList.size(); i++) {
+		        Student tmp = stuList.get(i);
+		        j = i;
+		        while ((j > 0) && (stuList.get(j - 1).getAvg() > tmp.getAvg())) {
+		        	stuList.set(j, stuList.get(j - 1));
+		            j--;
+		        }
+		        stuList.set(j, tmp);
+		    }
 
 
-
-		}
 
 	}
-
-
 
 	public static void sortVolHrs() {
 
-		for(int i = 1; i < stuList.size(); ++i){
-
-			double k = stuList.get(i).getVolHrs();
-
-			int j = i-1;
-
-
-
-			while(j >= 0 && stuList.get(j).getVolHrs() > k){
-
-				stuList.set(j+1, stuList.get(j));
-
-				j = j-1;
-
-			}
-
-			stuList.set(j+1, stuList.get(i));
-
-
-
-		}
+		 int i, j;
+		    for (i = 1; i < stuList.size(); i++) {
+		        Student tmp = stuList.get(i);
+		        j = i;
+		        while ((j > 0) && (stuList.get(j - 1).getVolHrs() > tmp.getVolHrs())) {
+		        	stuList.set(j, stuList.get(j - 1));
+		            j--;
+		        }
+		        stuList.set(j, tmp);
+		    }
 
 	}
 
+	
 	public static void listCandidates() {
 
 		for(int i = 0; i < stuList.size(); i++) {
