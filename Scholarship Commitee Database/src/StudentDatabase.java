@@ -482,63 +482,130 @@ public class StudentDatabase {
 
 	public static void loadFile(String fn) {
 
+
+
 		// TODO Auto-generated method stub
+
 		double avgMarks=0;
-		int stuNum =0, grade =0, size=0, ECs =0, volHrs, hrsEmplyed; 
-		String fName=null, lName=null, DOB = null;
+
+		int stuNum =0, grade =0, size=0, ECs =0, volHrs = 0, hrsEmplyed = 0, special = 0;
+
+		String fName=null, lName=null, DOB = null, topC = null;
+
+
 
 		Scanner s = null;
+
 		try {
 
+
+
 			s = new Scanner(new BufferedReader(new FileReader(fn))); //finds file name  
+
 			//Initializes size to arrays
+
 			size = Integer.parseInt(s.next());
+
 			System.out.print("Loading staff from file: "+fn+" with "+size+" students.");
+
 			System.out.println();
+
 			for(int i = 0; i < size; i++)
+
 			{
+
 				//Collects required fields 
+
 				fName = s.next();
+
 				lName  = s.next();
-				grade = Integer.parseInt(s.next());
+				
 				DOB = s.next();
+
+				grade = Integer.parseInt(s.next());
+
 				stuNum = Integer.parseInt(s.next());
+
 				avgMarks = Double.parseDouble(s.next());
+
 				volHrs = Integer.parseInt(s.next());
+
 				ECs= Integer.parseInt(s.next());
+
 				hrsEmplyed = Integer.parseInt(s.next());
+				
+				special = Integer.parseInt(s.next());
+
 				if(grade == 9) {
-					System.out.println("Please enter math EQAO score:");
-					int mEQAO = Integer.parseInt(in.nextLine());
-					stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, mEQAO));
-				}
-				else if(grade == 10) {
-					System.out.println("Please enter OSSLT score:");
-					int OSSLTscore = Integer.parseInt(in.nextLine());
-					stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, OSSLTscore));
+
+					
+					
+
+					stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
+
 				}
 
+				else if(grade == 10) {
+
+					
+
+					
+
+					stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
+
+				}
+
+
+
 				else if(grade == 11) {
-					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, i));
+					
+					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+
+				}
+
+				else if( grade == 12) {
+				
+				   
+					
+					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
+					
 				}
 
 				else {
 
-					System.out.println("Please enter top post secondary choice:");
-					int topPost = Integer.parseInt(in.nextLine());
-					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, topPost));
+
+
+					
+					System.out.println(":( Incorrect file format");
+
+
 				}
 
+
+
 			}
 
+
+
 			//if file is not found
+
 		} catch( FileNotFoundException e){
+
 			System.out.println(":( It seems like the file is missing. :(");
+
 		} finally {
+
 			if (s!=null){
+				System.out.println("/nDone.");
 				s.close();//closes file
+
 			}
+
 		}
+
+
+
+
 
 
 
