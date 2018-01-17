@@ -327,7 +327,7 @@ public class StudentDatabase {
 			System.out.println("User not found in database.");
 		}
 	}
-	
+
 	public static void highestEmplHrs() {
 
 		int emplHrs = 0;
@@ -352,7 +352,7 @@ public class StudentDatabase {
 
 	public static void sortAvg() {
 
-		for(int i = 1; i < stuList.size(); ++1){
+		for(int i = 1; i < stuList.size(); i++){
 
 			double k = stuList.get(i).getAvg();
 
@@ -415,12 +415,70 @@ public class StudentDatabase {
 	}
 
 	public static void clearList() {
-
 		stuList.clear();
-
 	}
 
+	/**
+	 * Compares the unique values for each grade: 9 = EQAO, 10 = OSSLT, 11 = Math Contest, 12 = University Average
+	 *  Prints out the first and last name of the student who has a greater score than / equal score to / less score than
+	 */
+	public static void compareStudent() {
+		//Print out the input message
+		System.out.print("\n" + "Note both students must be in the same grade" + "\n" +"Please enter the student number of your first student:");
+		//Get input
+		int stuNum1 = Integer.parseInt(in.nextLine());
+		//Print out input message
+		System.out.print("\n" + "Please enter the student number of your second student");
+		//Get input
+		int stuNum2 = Integer.parseInt(in.nextLine());
 
+		//Run through the entire array
+		for (int i = 0; i < stuList.size(); i++) {
+			
+			//Find a match with the first student number and a student in the database
+			if (stuNum1 == stuList.get(i).getStudentNum()) {
+				
+				//Run through the entire array
+				for (int j = 0; j < stuList.size(); i++) {
+					
+					//Find a match with the second student number and a student in the database
+					if (stuNum2 == stuList.get(j).getStudentNum()) {
+						
+						//Check if the students are in the same grade
+						if (stuList.get(i) instanceof Grade9 && stuList.get(j) instanceof Grade9 || stuList.get(i) instanceof Grade10 && stuList.get(j) instanceof Grade10 || stuList.get(i) instanceof Grade11 && stuList.get(j) instanceof Grade11 || stuList.get(i) instanceof Grade12 && stuList.get(j) instanceof Grade12) {
+							
+							//Run the compareTo Method
+							if (stuList.get(i).compareTo(stuList.get(j)) > 0) {
+								
+								//Print if the return is +1
+								System.out.println(stuList.get(i).fName + " " + stuList.get(i).lName + " has a greater score than " + stuList.get(j).fName + " " + stuList.get(j).lName);
+								
+							} else if (stuList.get(i).compareTo(stuList.get(j)) == 0) {
+								
+								//Print if the return is 0
+								System.out.println(stuList.get(i).fName + " " + stuList.get(i).lName + " has an equal score to " + stuList.get(j).fName + " " + stuList.get(j).lName);
+								
+							} else {
+								
+								//Print if the return is -1
+								System.out.println(stuList.get(i).fName + " " + stuList.get(i).lName + " has a less score than " + stuList.get(j).fName + " " + stuList.get(j).lName);
+							}
+							
+						} else {
+							//If the students are not in the same grade
+							System.out.println("The students are not in the same grade");
+						}
+					} else {
+						//If no match with the second student number and a studetn in the database
+						System.out.println("The second student does not exist in the database");
+					}
+				}
+			} else {
+				//If no match with the first student number and a student in the database
+				System.out.println("The first student does not exist in the database");
+			}
+		}
+	}
 
 	public static void loadFile(String fn) {
 
