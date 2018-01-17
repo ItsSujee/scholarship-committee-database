@@ -380,7 +380,7 @@ public class StudentDatabase {
 
 	public static void sortVolHrs() {
 
-		for(int i = 1; i < stuList.size(); i++){
+		for(int i = 1; i < stuList.size(); ++i){
 
 			double k = stuList.get(i).getVolHrs();
 
