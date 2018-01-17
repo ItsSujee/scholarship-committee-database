@@ -352,7 +352,7 @@ public class StudentDatabase {
 
 	public static void sortAvg() {
 
-		for(int i = 1; i < stuList.size(); i++){
+		for(int i = 1; i < stuList.size(); ++1){
 
 			double k = stuList.get(i).getAvg();
 
