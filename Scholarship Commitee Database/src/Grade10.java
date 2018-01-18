@@ -5,7 +5,8 @@
  * School: Lester B. Pearson C.I.
  * Purpose:
  * 
- *
+ *	Grade10 class extends the Student class, it is type of Student that includes the scores for the OSSLT
+ *  INHERITANCE
  */
 public class Grade10 extends Student {
 	
@@ -33,19 +34,19 @@ public class Grade10 extends Student {
 	}
 
 	/**
-	 * Returns -1 if parameter has greater OSSLT score
-	 * Returns +1 if parameter has less OSSLT score
-	 * Returns 0 if parameter has equal OSSLT score
+	 * Prints if parameter has greater OSSLT score
+	 * Prints if parameter has less OSSLT score
+	 * Prints if parameter has equal OSSLT score
 	 * 
 	 * @param s1 //parameter is a student, must be an instanceOf Grade9
 	 */
-	public int compareTo(Student s1) {
+	public void compareTo(Student s1) {
 		if (this.osslt > ((Grade10)s1).osslt) {
-			return +1;
+			System.out.println(this.fName + " " + this.lName + " has a greater score than " + s1.fName + " " + s1.lName);
 		} else if (this.osslt < ((Grade10)s1).osslt) {
-			return -1;
+			System.out.println(this.fName + " " + this.lName + " has a lesser score than " + s1.fName + " " + s1.lName);
 		} else {
-			return 0;
+			System.out.println(this.fName + " " + this.lName + " has an equal score to " + s1.fName + " " + s1.lName);
 		}
 	}
 	
