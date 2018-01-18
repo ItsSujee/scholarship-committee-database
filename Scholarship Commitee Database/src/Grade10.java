@@ -5,7 +5,7 @@
  * School: Lester B. Pearson C.I.
  * Purpose:
  * 
- *	Grade10 class extends the Student class, it is type of Student that includes the scores for the OSSLT
+ *  Grade10 class extends the Student class, it is type of Student that includes the scores for the OSSLT
  *  INHERITANCE
  */
 public class Grade10 extends Student {
