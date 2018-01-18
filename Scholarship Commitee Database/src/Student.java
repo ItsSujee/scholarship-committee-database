@@ -5,6 +5,7 @@
  * School: Lester B. Pearson C.I.
  * Purpose:
  * 
+ * Abstract class that makes the "template" for the grade classes
  *
  */
 public abstract class Student {
@@ -49,7 +50,7 @@ public abstract class Student {
 	 * @param s1
 	 * @return 
 	 */
-	public abstract int compareTo(Student s1);
+	public abstract void compareTo(Student s1);
 
 	/**
 	 * Getter method for the Date of Birth
