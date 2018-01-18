@@ -823,6 +823,7 @@ public class StudentDatabase {
 			//print value at current index
 
 			System.out.println(stuList.get(i).toString());
+			System.out.println();
 
 		}
 
@@ -1351,7 +1352,7 @@ public class StudentDatabase {
 
 
 
-				pw.println(st.getnmECs());
+				pw.println(st.getNumOfExtraCurr());
 
 
 
