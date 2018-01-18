@@ -20,6 +20,9 @@ public class StudentDatabase {
 	//input Scanner
 	static Scanner in = new Scanner(System.in);
 
+	/**
+	 * ARRAY OF OBJECTS
+	 */
 	//Create arrayList to store the list of Student objects
 	static ArrayList <Student> stuList = new ArrayList <Student>();
 
@@ -27,6 +30,10 @@ public class StudentDatabase {
 	 * Add a Candidate to the arrayList, all information must filled out
 	 */
 	public static void addCandidate() {
+		/**
+		 * Print out message
+		 * Ask for next line
+		 */
 		System.out.print("\n" + "Please enter student grade:");
 		int stuGrade = Integer.parseInt(in.nextLine());
 
@@ -123,13 +130,13 @@ public class StudentDatabase {
 		}
 	}
 
-	/**
+	/**SEARCHING
+	 * 
 	 * Modify the contents of a student
 	 */
 	public static void modifyCandidate() {
-
+		//get input
 		System.out.print("Enter student number: ");
-
 		int stuNum = Integer.parseInt(in.nextLine());
 
 		boolean grade12 = false;
@@ -137,15 +144,14 @@ public class StudentDatabase {
 		for(int i = 0; i < stuList.size(); i++) {
 
 			if(stuList.get(i).getStudentNum() == stuNum) {
-
+				
+				/**
+				 * POLYMORPHISM
+				 */
 				if(stuList.get(i) instanceof Grade12) {
-
 					grade12 = true;
-
 				}
-
 			}
-
 		}
 
 		System.out.println("Select what you would like to modify:");
@@ -164,7 +170,7 @@ public class StudentDatabase {
 
 		}
 
-		System.out.println("Your choice:");
+		System.out.print("Your choice:");
 		int choice = Integer.parseInt(in.nextLine());
 
 		if(choice == 1) {
@@ -252,15 +258,14 @@ public class StudentDatabase {
 					stuList.get(i).changeAvg(newAvg);
 
 				}
-
 			}
-
 		}
-
 	}
 
 
-
+	/** SEARCHING
+	 * 
+	 */
 	public static void highestAverage() {
 
 		double avg = 0;
@@ -285,8 +290,9 @@ public class StudentDatabase {
 
 	}
 
-
-
+	/** SEARCHING
+	 * 
+	 */
 	public static void highestVolHrs() {
 
 		int volHrs = 0;
@@ -309,7 +315,12 @@ public class StudentDatabase {
 
 	}
 
-	//i must == 0
+	/** RECURSION
+	 *  SEARCHING
+	 * 
+	 * @param stuNum
+	 * @param i // Must use as value of 0
+	 */
 	public static void findCandidate(int stuNum, int i) {  
 
 		if (i < stuList.size()) {
@@ -328,6 +339,9 @@ public class StudentDatabase {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public static void highestEmplHrs() {
 
 		int emplHrs = 0;
@@ -350,49 +364,59 @@ public class StudentDatabase {
 
 	}
 
+	/** SORTING
+	 * 
+	 */
 	public static void sortAvg() {
 
-		 int i, j;
-		    for (i = 1; i < stuList.size(); i++) {
-		        Student tmp = stuList.get(i);
-		        j = i;
-		        while ((j > 0) && (stuList.get(j - 1).getAvg() > tmp.getAvg())) {
-		        	stuList.set(j, stuList.get(j - 1));
-		            j--;
-		        }
-		        stuList.set(j, tmp);
-		    }
-
-
-
-	}
-
-	public static void sortVolHrs() {
-
-		 int i, j;
-		    for (i = 1; i < stuList.size(); i++) {
-		        Student tmp = stuList.get(i);
-		        j = i;
-		        while ((j > 0) && (stuList.get(j - 1).getVolHrs() > tmp.getVolHrs())) {
-		        	stuList.set(j, stuList.get(j - 1));
-		            j--;
-		        }
-		        stuList.set(j, tmp);
-		    }
-
-	}
-
-	
-	public static void listCandidates() {
-
-		for(int i = 0; i < stuList.size(); i++) {
-
-			System.out.println(stuList.get(i).toString());
-
+		int i, j;
+		for (i = 1; i < stuList.size(); i++) {
+			Student tmp = stuList.get(i);
+			j = i;
+			while ((j > 0) && (stuList.get(j - 1).getAvg() > tmp.getAvg())) {
+				stuList.set(j, stuList.get(j - 1));
+				j--;
+			}
+			stuList.set(j, tmp);
 		}
 
+		System.out.println("Database successfully sorted by Average");
 	}
 
+	/** SORTING
+	 * 
+	 */
+	public static void sortVolHrs() {
+
+		int i, j;
+		for (i = 1; i < stuList.size(); i++) {
+			Student tmp = stuList.get(i);
+			j = i;
+			while ((j > 0) && (stuList.get(j - 1).getVolHrs() > tmp.getVolHrs())) {
+				stuList.set(j, stuList.get(j - 1));
+				j--;
+			}
+			stuList.set(j, tmp);
+		}
+
+		System.out.println("Database successfully sorted by Volunteer Hours");
+	}
+
+	/**
+	 * Prints all the objects in the arrayList
+	 */
+	public static void listCandidates() {
+		//run through array
+		for(int i = 0; i < stuList.size(); i++) {
+
+			//print value at current index
+			System.out.println(stuList.get(i).toString());
+		}
+	}
+
+	/**
+	 * Removes all objects in the arrayList
+	 */
 	public static void clearList() {
 		stuList.clear();
 	}
@@ -404,61 +428,52 @@ public class StudentDatabase {
 	public static void compareStudent() {
 		//Print out the input message
 		System.out.print("\n" + "Note both students must be in the same grade" + "\n" +"Please enter the student number of your first student:");
+
 		//Get input
 		int stuNum1 = Integer.parseInt(in.nextLine());
+
 		//Print out input message
 		System.out.print("\n" + "Please enter the student number of your second student");
+
 		//Get input
 		int stuNum2 = Integer.parseInt(in.nextLine());
 
-		//Run through the entire array
+		//Find index of students in database
+		int stuIndex1 = -1;
+		int stuIndex2 = -1;
+
+		//Run through array
 		for (int i = 0; i < stuList.size(); i++) {
-			
-			//Find a match with the first student number and a student in the database
+			//If found set value for index
 			if (stuNum1 == stuList.get(i).getStudentNum()) {
-				
-				//Run through the entire array
-				for (int j = 0; j < stuList.size(); i++) {
-					
-					//Find a match with the second student number and a student in the database
-					if (stuNum2 == stuList.get(j).getStudentNum()) {
-						
-						//Check if the students are in the same grade
-						if (stuList.get(i) instanceof Grade9 && stuList.get(j) instanceof Grade9 || stuList.get(i) instanceof Grade10 && stuList.get(j) instanceof Grade10 || stuList.get(i) instanceof Grade11 && stuList.get(j) instanceof Grade11 || stuList.get(i) instanceof Grade12 && stuList.get(j) instanceof Grade12) {
-							
-							//Run the compareTo Method
-							if (stuList.get(i).compareTo(stuList.get(j)) > 0) {
-								
-								//Print if the return is +1
-								System.out.println(stuList.get(i).fName + " " + stuList.get(i).lName + " has a greater score than " + stuList.get(j).fName + " " + stuList.get(j).lName);
-								
-							} else if (stuList.get(i).compareTo(stuList.get(j)) == 0) {
-								
-								//Print if the return is 0
-								System.out.println(stuList.get(i).fName + " " + stuList.get(i).lName + " has an equal score to " + stuList.get(j).fName + " " + stuList.get(j).lName);
-								
-							} else {
-								
-								//Print if the return is -1
-								System.out.println(stuList.get(i).fName + " " + stuList.get(i).lName + " has a less score than " + stuList.get(j).fName + " " + stuList.get(j).lName);
-							}
-							
-						} else {
-							//If the students are not in the same grade
-							System.out.println("The students are not in the same grade");
-						}
-					} else {
-						//If no match with the second student number and a studetn in the database
-						System.out.println("The second student does not exist in the database");
-					}
-				}
-			} else {
-				//If no match with the first student number and a student in the database
-				System.out.println("The first student does not exist in the database");
+				stuIndex1 = i;
 			}
+
+			//If found set value for index
+			if (stuNum2 == stuList.get(i).getStudentNum()) {
+				stuIndex2 = i;
+			}
+		}
+
+		//If found in database run the method
+		if (stuIndex1 != -1 && stuIndex2 != -1) {
+			//Run compareTo Method
+			stuList.get(stuIndex1).compareTo(stuList.get(stuIndex2));
+			System.out.println("");
+		} else {
+			//If not found in database
+			System.out.println("Error, student numbers not found in database");
 		}
 	}
 
+	/**
+	 * FILE INPUT
+	 */
+
+	/**
+	 * 
+	 * @param fn
+	 */
 	public static void loadFile(String fn) {
 
 
@@ -498,7 +513,7 @@ public class StudentDatabase {
 				fName = s.next();
 
 				lName  = s.next();
-				
+
 				DOB = s.next();
 
 				grade = Integer.parseInt(s.next());
@@ -512,13 +527,13 @@ public class StudentDatabase {
 				ECs= Integer.parseInt(s.next());
 
 				hrsEmplyed = Integer.parseInt(s.next());
-				
+
 				special = Integer.parseInt(s.next());
 
 				if(grade == 9) {
 
-					
-					
+
+
 
 					stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
@@ -526,9 +541,9 @@ public class StudentDatabase {
 
 				else if(grade == 10) {
 
-					
 
-					
+
+
 
 					stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
@@ -537,24 +552,24 @@ public class StudentDatabase {
 
 
 				else if(grade == 11) {
-					
-					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+
+					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
 				}
 
 				else if( grade == 12) {
-				
-				   
-					
+
+
+
 					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
-					
+
 				}
 
 				else {
 
 
 
-					
+
 					System.out.println(":( Incorrect file format");
 
 
@@ -589,9 +604,14 @@ public class StudentDatabase {
 
 
 	}
+	/**
+	 * FILE OUTPUT
+	 */
 
-
-
+	/**
+	 * 
+	 * @param fn
+	 */
 	public static void saveFile(String fn) {
 
 		// TODO Auto-generated method stub
