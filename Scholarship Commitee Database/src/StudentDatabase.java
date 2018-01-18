@@ -554,7 +554,7 @@ public class StudentDatabase {
 
 				else if(grade == 11) {
 					
-					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
+					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
 				}
 
@@ -686,31 +686,30 @@ public class StudentDatabase {
 
 				pw.println(st.getVolHrs());
 
-				pw.println(st.getNumECs());
+				pw.println(st.getNumOfExtraCurr());
 
 				pw.println(st.getHrsEmp());
 
 				if(st instanceof Grade9) {
 
-					pw.println(Grade9.mathEQAO);
+					pw.println(((Grade9)st).getMathEQAO());
 
 				}
 
 				if(st instanceof Grade10) {
 
-					pw.println(Grade10.OSSLT);
+					pw.println(((Grade10)st).getOsslt());
 
 				}
 
 				if(st instanceof Grade11) {
 
-					pw.println("Grade 11: no score");
+					pw.println(((Grade11)st).getMathContestScore());
 
 				}
 
 				if(st instanceof Grade12) {
-					Grade12 X = (Grade12) stuList.get(i);
-					pw.println(X.getTopPost());
+					pw.println(((Grade12)st).getTopPostChoiceAvg());
 
 				}
 
