@@ -88,7 +88,7 @@ public class EIMDexe {
 				break;
 
 			case "10": //Load File
-				System.out.println("Enter file name: ");
+				System.out.print("Enter file name: ");
 				String fn = sc.nextLine();
 				StudentDatabase.loadFile(fn);
 				break;
@@ -174,7 +174,7 @@ public class EIMDexe {
 	 * Prints the message when the input is invalid
 	 */
 	public static void error() {
-		System.out.println("Opps, looks like you've typed an invalid command");
+		System.out.println("Opps, looks like you've typed an invalid command" + "\n");
 	}
 
 	/**

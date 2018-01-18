@@ -290,7 +290,7 @@ public class StudentDatabase {
 
 			if(stuList.get(i).getStudentNum() == stuNum) {
 
-				
+
 
 				/**
 
@@ -347,7 +347,6 @@ public class StudentDatabase {
 		int choice = Integer.parseInt(in.nextLine());
 
 
-
 		if(choice == 1) {
 
 
@@ -359,6 +358,7 @@ public class StudentDatabase {
 			int newAvg = Integer.parseInt(in.nextLine());
 
 
+			System.out.println("");
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -394,7 +394,7 @@ public class StudentDatabase {
 
 			int newHrs = Integer.parseInt(in.nextLine());
 
-
+			System.out.println("");
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -430,7 +430,7 @@ public class StudentDatabase {
 
 			int newECs = Integer.parseInt(in.nextLine());
 
-
+			System.out.println("");
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -466,7 +466,7 @@ public class StudentDatabase {
 
 			int newHrs = Integer.parseInt(in.nextLine());
 
-
+			System.out.println("");
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -502,7 +502,7 @@ public class StudentDatabase {
 
 			int newAvg = Integer.parseInt(in.nextLine());
 
-
+			System.out.println("");
 
 			for(int i = 0; i < stuList.size(); i++) {
 
@@ -548,7 +548,7 @@ public class StudentDatabase {
 
 		// goes through the whole array list
 
-
+		if (stuList.size() > 0) {
 
 		for(int i = 0; i < stuList.size(); i++) {
 
@@ -574,7 +574,11 @@ public class StudentDatabase {
 
 
 
-		System.out.println(stuList.get(index).toString()); // print out the student info
+		System.out.println(stuList.get(index).toString() + "\n"); // print out the student info
+		
+		} else {
+			System.out.println("There are no students in the database" + "\n");
+		}
 
 
 
@@ -598,33 +602,36 @@ public class StudentDatabase {
 
 		int index = 0;
 
+		if (stuList.size() > 0) {
 
-
-		for(int i = 0; i < stuList.size(); i++) {
-
-
-
-			if(stuList.get(i).getVolHrs() > volHrs){
+			for(int i = 0; i < stuList.size(); i++) {
 
 
 
-				volHrs = stuList.get(i).getVolHrs();
+				if(stuList.get(i).getVolHrs() > volHrs){
 
 
 
-				index = i;
+					volHrs = stuList.get(i).getVolHrs();
 
 
+
+					index = i;
+
+
+
+				}
 
 			}
+			
+			System.out.println(stuList.get(index).toString() + "\n"); 
 
-
-
+		} else {
+			System.out.println("There are no students in the database" + "\n");
 		}
 
 
 
-		System.out.println(stuList.get(index).toString()); 
 
 
 
@@ -656,7 +663,7 @@ public class StudentDatabase {
 
 
 
-				System.out.println(stuList.get(i).toString()); 
+				System.out.println(stuList.get(i).toString() + "\n"); 
 
 
 
@@ -672,7 +679,7 @@ public class StudentDatabase {
 
 
 
-			System.out.println("User not found in database.");
+			System.out.println("User not found in database." + "\n");
 
 		}
 
@@ -696,7 +703,7 @@ public class StudentDatabase {
 
 		int index = 0;
 
-
+		if (stuList.size() > 0) {
 
 		for(int i = 0; i < stuList.size(); i++) {
 
@@ -722,9 +729,11 @@ public class StudentDatabase {
 
 
 
-		System.out.println(stuList.get(index).toString()); 
+		System.out.println(stuList.get(index).toString() + "\n"); 
 
-
+		} else {
+			System.out.println("There are no students in the database" + "\n");
+		}
 
 	}
 
@@ -762,7 +771,7 @@ public class StudentDatabase {
 
 
 
-		System.out.println("Database successfully sorted by Average");
+		System.out.println("Database successfully sorted by Average" + "\n");
 
 	}
 
@@ -800,7 +809,7 @@ public class StudentDatabase {
 
 
 
-		System.out.println("Database successfully sorted by Volunteer Hours");
+		System.out.println("Database successfully sorted by Volunteer Hours" + "\n");
 
 	}
 
@@ -951,7 +960,7 @@ public class StudentDatabase {
 
 	 */
 
-	
+
 
 	public static void loadFile(String fn) {
 
@@ -974,12 +983,6 @@ public class StudentDatabase {
 
 
 		String fName=null, lName=null, DOB = null, topC = null;
-
-
-
-
-
-
 
 		Scanner s = null;
 
@@ -1031,7 +1034,7 @@ public class StudentDatabase {
 
 				lName  = s.next();
 
-				
+
 
 				DOB = s.next();
 
@@ -1059,7 +1062,7 @@ public class StudentDatabase {
 
 				hrsEmplyed = Integer.parseInt(s.next());
 
-				
+
 
 				special = Integer.parseInt(s.next());
 
@@ -1087,7 +1090,7 @@ public class StudentDatabase {
 
 				else if(grade == 11) {
 
-					
+
 
 					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
@@ -1098,15 +1101,15 @@ public class StudentDatabase {
 
 				else if( grade == 12) {
 
-				
 
-				   
 
-					
+
+
+
 
 					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
-					
+
 
 				}
 
@@ -1120,7 +1123,7 @@ public class StudentDatabase {
 
 
 
-					
+
 
 					System.out.println(":( Incorrect file format");
 
@@ -1162,7 +1165,7 @@ public class StudentDatabase {
 
 			if (s!=null){
 
-				System.out.println("\nDone");
+				System.out.println("\nDone \n");
 
 				s.close();//closes file
 
@@ -1442,7 +1445,7 @@ public class StudentDatabase {
 
 
 
-				
+
 
 	}
 
