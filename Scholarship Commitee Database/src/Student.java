@@ -12,6 +12,8 @@ public abstract class Student {
 
 	/**
 	 * protected variables that are available for every class that extends Student
+	 * 
+	 * ENCAPSULATION
 	 */
 	protected String fName;
 	protected String lName;
@@ -52,6 +54,10 @@ public abstract class Student {
 	 */
 	public abstract void compareTo(Student s1);
 
+	/**
+	 * ALL GETTERS AND SETTERS ARE ENCAPSULATION
+	 */
+	
 	/**
 	 * Getter method for the Date of Birth
 	 * @return dateOfBirth //returns the String date of birth in format (DD/MM/YY)
