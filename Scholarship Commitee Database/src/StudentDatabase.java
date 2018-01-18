@@ -474,6 +474,7 @@ public class StudentDatabase {
 	 * 
 	 * @param fn
 	 */
+	
 	public static void loadFile(String fn) {
 
 
@@ -500,7 +501,7 @@ public class StudentDatabase {
 
 			size = Integer.parseInt(s.next());
 
-			System.out.print("Loading staff from file: "+fn+" with "+size+" students.");
+			System.out.print("Loading students from file: "+fn+" with "+size+" students.");
 
 			System.out.println();
 
@@ -513,7 +514,7 @@ public class StudentDatabase {
 				fName = s.next();
 
 				lName  = s.next();
-
+				
 				DOB = s.next();
 
 				grade = Integer.parseInt(s.next());
@@ -527,13 +528,13 @@ public class StudentDatabase {
 				ECs= Integer.parseInt(s.next());
 
 				hrsEmplyed = Integer.parseInt(s.next());
-
+				
 				special = Integer.parseInt(s.next());
 
 				if(grade == 9) {
 
-
-
+					
+					
 
 					stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
@@ -541,9 +542,9 @@ public class StudentDatabase {
 
 				else if(grade == 10) {
 
+					
 
-
-
+					
 
 					stuList.add(new Grade10(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 
@@ -552,24 +553,24 @@ public class StudentDatabase {
 
 
 				else if(grade == 11) {
-
-					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
+					
+					stuList.add(new Grade11(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed));
 
 				}
 
 				else if( grade == 12) {
-
-
-
+				
+				   
+					
 					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
-
+					
 				}
 
 				else {
 
 
 
-
+					
 					System.out.println(":( Incorrect file format");
 
 
@@ -590,7 +591,7 @@ public class StudentDatabase {
 		} finally {
 
 			if (s!=null){
-				System.out.println("/nDone.");
+				System.out.println("\nDone");
 				s.close();//closes file
 
 			}
@@ -604,6 +605,9 @@ public class StudentDatabase {
 
 
 	}
+
+
+
 	/**
 	 * FILE OUTPUT
 	 */
@@ -614,67 +618,122 @@ public class StudentDatabase {
 	 */
 	public static void saveFile(String fn) {
 
+
+
 		// TODO Auto-generated method stub
-		System.out.println("Saving staff to file: "+fn);
+
+		System.out.println("Saving students to file: "+fn);
+
 		System.out.println();
 
+
+
 		File file = new File(fn); //sets file name
+
 		PrintWriter pw=null;
+
 		try {
+
 			pw = new PrintWriter(file);
+
 			// write size to file
+
 			pw.println(stuList.size()); //writes # students
 
+
+
 			for(int i=0; stuList.size()>i; i++){ 
+
 				Student st = stuList.get(i);
+
 				//writes super fields, employee number, first name, and last name
+
 				pw.println(st.fName); 
+
 				pw.println(st.lName);
+
 				pw.println(st.getDOB());
 
+
+
 				if(st instanceof Grade9) {
+
 					pw.println("Grade 9");
+
 				}
+
 				if(st instanceof Grade10) {
+
 					pw.println("Grade 10");
+
 				}
+
 				if(st instanceof Grade11) {
+
 					pw.println("Grade 11");
+
 				}
+
 				if(st instanceof Grade12) {
+
 					pw.println("Grade 12");
+
 				}
+
 				pw.println(st.getStudentNum());
+
 				pw.println(st.getAvg());
+
 				pw.println(st.getVolHrs());
-				pw.println(st.getNumOfExtraCurr());
+
+				pw.println(st.getNumECs());
+
 				pw.println(st.getHrsEmp());
+
 				if(st instanceof Grade9) {
-					pw.println(((Grade9)st).mathEQAO);
+
+					pw.println(Grade9.mathEQAO);
+
 				}
+
 				if(st instanceof Grade10) {
-					pw.println(((Grade10)st).osslt);
+
+					pw.println(Grade10.OSSLT);
+
 				}
+
 				if(st instanceof Grade11) {
+
 					pw.println("Grade 11: no score");
+
 				}
+
 				if(st instanceof Grade12) {
-					pw.println(((Grade12)st).topPostChoiceAvg);
+					Grade12 X = (Grade12) stuList.get(i);
+					pw.println(X.getTopPost());
+
 				}
+
+
 
 			}//end of for loop
+
 		} catch (FileNotFoundException e) {
+
 			e.printStackTrace();
+
 		} finally {
+
 			if(pw != null){
+
 				pw.close();
+
 			}
+
 		} 
 
+				
 	}
-
-
-
 
 
 
