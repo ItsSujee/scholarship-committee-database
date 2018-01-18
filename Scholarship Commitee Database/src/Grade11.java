@@ -5,7 +5,8 @@
  * School: Lester B. Pearson C.I.
  * Purpose:
  * 
- *
+ *  Grade11 class extends the Student class, it is type of Student that includes the scores for the math Contest
+ *  INHERITANCE
  */
 public class Grade11 extends Student {
 
@@ -33,19 +34,19 @@ public class Grade11 extends Student {
 	}
 
 	/**
-	 * Returns -1 if parameter has greater mathContest score
-	 * Returns +1 if parameter has less mathContest score
-	 * Returns 0 if parameter has equal mathContest score
+	 * Prints if parameter has greater mathContest score
+	 * Prints if parameter has less mathContest score
+	 * Prints if parameter has equal mathContest score
 	 * 
 	 * @param s1 //parameter is a student, must be an instanceOf Grade9
 	 */
-	public int compareTo(Student s1) {
+	public void compareTo(Student s1) {
 		if (this.mathContestScore > ((Grade11)s1).mathContestScore) {
-			return +1;
+			System.out.println(this.fName + " " + this.lName + " has a greater score than " + s1.fName + " " + s1.lName);
 		} else if (this.mathContestScore < ((Grade11)s1).mathContestScore) {
-			return -1;
+			System.out.println(this.fName + " " + this.lName + " has a lesser score than " + s1.fName + " " + s1.lName);
 		} else {
-			return 0;
+			System.out.println(this.fName + " " + this.lName + " has an equal score to " + s1.fName + " " + s1.lName);
 		}
 	}
 	
