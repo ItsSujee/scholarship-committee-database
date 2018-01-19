@@ -100,7 +100,7 @@ public class Grade11 extends Student {
 
 	}
 
-	public double getScore() {
+	public int getScore() {
 		return mathContestScore;
 	}
 
