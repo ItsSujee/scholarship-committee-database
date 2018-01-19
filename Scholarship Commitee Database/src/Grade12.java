@@ -101,8 +101,8 @@ public class Grade12 extends Student {
 	}
 
 	
-	public double getTopPost() {
-		return topPostChoiceAvg;
+	public int getTopPost() {
+		return this.topPostChoiceAvg;
 	}
 	/**
 
@@ -114,7 +114,7 @@ public class Grade12 extends Student {
 
 		String s = super.toString();
 
-		s += "Top university choice enterence average: " + topPostChoiceAvg + "\n";
+		s += "Top university choice enterence average: " + this.topPostChoiceAvg + "\n";
 
 		s += "Grade 12";
 
