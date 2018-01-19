@@ -81,7 +81,7 @@ public class Grade10 extends Student {
 	 * @param s1 //parameter is a student, must be an instanceOf Grade9
 
 	 */
-	public double getOSSLT() {
+	public int getOSSLT() {
 		return osslt;
 	}
 
