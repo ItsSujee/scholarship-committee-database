@@ -81,7 +81,7 @@ public class Grade9 extends Student {
 	 * @param s1 //parameter is a student, must be an instanceOf Grade9
 
 	 */
-	public double getmEqao() {
+	public int getmEqao() {
 		return mathEQAO	;
 	}
 
