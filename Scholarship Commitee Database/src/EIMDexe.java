@@ -114,7 +114,7 @@ public class EIMDexe {
 			case "15": //Help
 				aboutUs();
 				break;
-				
+
 			default:
 				error();
 				break;
@@ -189,8 +189,32 @@ public class EIMDexe {
 	 */
 	public static void aboutUs() {
 		String s = "\n" + "Who are we?" + "\n" + "\n" + "We are a group of four young men who love to code:" + "\n" + "Sujeethan Vigneswaran" + "\n" + "Aarsh Patel" + "\n" + "Dhruv Bhavsar" + "\n" + "Harry Masaun";
-		String d = "\n" + "\n" + "Why EIMD?" + "\n" + "EIMD was designed for a scholarship commitee to be able to sift through applicants with ease" + "\n\n";
-
-		System.out.print(s + d);
+		s += "\n\n" + "Why EIMD?" + "\n" + "EIMD was designed for a scholarship commitee to be able to sift through applicants with ease";
+		s += "\n\n" + "What is EIMD?";
+		s += "\n" + "EIMD is a database which has a very simplistic user interface for ease of use which you narrow down to personal ";
+		s += "\npreference of the scholarship comittie.";
+		s += " EIMD aims to assist scholarship comitties to select the most \ndeserving candidate for their scholarship.";
+		s += "\n\nHow does EIMD work?";
+		s += "\nSimilar to myBlueprint, EIMD works by getting students from various schools to fill out their information according to their grade.";
+		s += "This information is then proccessed by our extensive and through code and then further narrowed down using methods which are selected \n";
+		s += "the comitties using our code. ";
+		s += "\n\nMethods information:";
+		s += "\nExit: Exits program.";
+		s += "\nAdd Candidate: Adds candidate by getting appropriate information from user and then saves it to the array list.";
+		s += "\nRemove Candidate: Removes candidate from the object array list.";
+		s += "\nModify Candidate Info: Modifys a specific candidates information that is allowed to be altered.";
+		s += "\nSearch for Highest Average: Searches for highest average and then prints candidate.";
+		s += "\nSearch for Most Volunteer Hours";
+		s += "\nSearch by Student Number";
+		s += "\nSearch by Most Employment Hours";
+		s += "\nSort by Average";
+		s += "\nSort by Volunteer Hours";
+		s += "\nLoad file";
+		s += "\nSave file";
+		s += "\nList Candidates";
+		s += "\nCompare Students";
+		s += "\nClear Database";
+		s += "\nHelp" + "\n";
+		System.out.println(s);
 	}
 }
