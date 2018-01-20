@@ -1,5 +1,5 @@
 # scholarship-committee-database
-ICS4U1-Culinating, Create a database for a scholarship committee
+ICS4U1-Culminating, Create a database for a scholarship committee
 
 @Author:
 
