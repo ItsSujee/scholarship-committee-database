@@ -204,17 +204,16 @@ public class EIMDexe {
 		s += "\nRemove Candidate: Removes candidate from the object array list.";
 		s += "\nModify Candidate Info: Modifys a specific candidates information that is allowed to be altered.";
 		s += "\nSearch for Highest Average: Searches for highest average and then prints candidate.";
-		s += "\nSearch for Most Volunteer Hours";
-		s += "\nSearch by Student Number";
-		s += "\nSearch by Most Employment Hours";
-		s += "\nSort by Average";
-		s += "\nSort by Volunteer Hours";
-		s += "\nLoad file";
-		s += "\nSave file";
-		s += "\nList Candidates";
-		s += "\nCompare Students";
-		s += "\nClear Database";
-		s += "\nHelp" + "\n";
+		s += "\nSearch for Most Volunteer Hours: Searches for most volunteer hours and then prints candidate.";
+		s += "\nSearch by Student Number: Searches for student using student number and then prints.";
+		s += "\nSearch by Most Employment Hours: Searches for most employed hours and then prints candidate.";
+		s += "\nSort by Average: Sorts by highest average to lowest average.";
+		s += "\nSort by Volunteer Hours: Sorts by highest to lowest volunteer hours.";
+		s += "\nLoad file: Loads file by getting file name.";
+		s += "\nSave file: Saves file using file name.";
+		s += "\nList Candidates: Lists all candidates.";
+		s += "\nCompare Students: Compares all students.";
+		s += "\nClear Database: Deletes all candidates in the database.";
 		System.out.println(s);
 	}
 }

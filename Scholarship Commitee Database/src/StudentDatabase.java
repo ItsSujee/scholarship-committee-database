@@ -109,7 +109,10 @@ public class StudentDatabase {
 		//get input
 		System.out.print("Enter student number: ");
 		int stuNum = Integer.parseInt(in.nextLine());
-		boolean grade12 = false;
+		boolean grade12 = false; 
+		boolean grade11 = false; 
+		boolean grade10 = false; 
+		boolean grade9 = false;
 		for(int i = 0; i < stuList.size(); i++) {
 			if(stuList.get(i).getStudentNum() == stuNum) {
 				/**
@@ -117,6 +120,12 @@ public class StudentDatabase {
 				 */
 				if(stuList.get(i) instanceof Grade12) {
 					grade12 = true;
+				} else if(stuList.get(i) instanceof Grade11) {
+					grade11 = true;
+				} else if(stuList.get(i) instanceof Grade10) {
+					grade10 = true;
+				} else {
+					grade9 = true;
 				}
 			}
 		}
@@ -127,6 +136,12 @@ public class StudentDatabase {
 		System.out.println("4. Number of hours employed");
 		if(grade12){
 			System.out.println("5. Top post secondary choice");
+		} else if(grade11){
+			System.out.println("5. Math contest score");
+		} else if(grade10){
+			System.out.println("5. OSSLT score");
+		} else {
+			System.out.println("5. Math EQAO score");
 		}
 		System.out.print("Your choice:");
 		int choice = Integer.parseInt(in.nextLine());
@@ -170,13 +185,40 @@ public class StudentDatabase {
 				}
 			}
 		}
-		else if(grade12){
-			System.out.print("Enter new top post secondary choice:");
+		else if(choice == 5 && grade12){
+			System.out.print("Enter new top post secondary average:");
 			int newAvg = Integer.parseInt(in.nextLine());
 			System.out.println("");
 			for(int i = 0; i < stuList.size(); i++) {
 				if(stuList.get(i).getStudentNum() == stuNum) {
-					stuList.get(i).changeAvg(newAvg);
+					((Grade12) stuList.get(i)).setTopPost(newAvg);
+				}
+			}
+		} else if(choice == 5 && grade11){
+			System.out.print("Enter new math contest score:");
+			int newScore = Integer.parseInt(in.nextLine());
+			System.out.println("");
+			for(int i = 0; i < stuList.size(); i++) {
+				if(stuList.get(i).getStudentNum() == stuNum) {
+					((Grade11) stuList.get(i)).setScore(newScore);;
+				}
+			}
+		} else if(choice == 5 && grade10){
+			System.out.print("Enter new OSSLT score:");
+			int newOSSLT = Integer.parseInt(in.nextLine());
+			System.out.println("");
+			for(int i = 0; i < stuList.size(); i++) {
+				if(stuList.get(i).getStudentNum() == stuNum) {
+					((Grade10) stuList.get(i)).setOSSLT(newOSSLT);;
+				}
+			}
+		} else if(choice == 5 && grade9){
+			System.out.print("Enter new math EQAO score:");
+			int newmEQAO = Integer.parseInt(in.nextLine());
+			System.out.println("");
+			for(int i = 0; i < stuList.size(); i++) {
+				if(stuList.get(i).getStudentNum() == stuNum) {
+					((Grade9) stuList.get(i)).setmEqao(newmEQAO);;
 				}
 			}
 		}
@@ -184,7 +226,7 @@ public class StudentDatabase {
 
 
 	/** SEARCHING
-	 * 
+	 * Searches and prints user with highest average 
 	 */
 	public static void highestAverage() {
 		double avg = 0;
@@ -205,7 +247,7 @@ public class StudentDatabase {
 
 
 	/** SEARCHING
-	 * 
+	 * Searches and prints candidate with highest volunteer hours
 	 */
 	public static void highestVolHrs() {
 		int volHrs = 0;
@@ -226,7 +268,7 @@ public class StudentDatabase {
 
 	/** RECURSION
 	 *  SEARCHING
-	 * 
+	 * Goes through array to find the desired user
 	 * @param stuNum
 	 * @param i // Must use as value of 0
 	 */
@@ -243,8 +285,8 @@ public class StudentDatabase {
 	}
 
 
-	/**
-	 * 
+	/** SEARCHING
+	 * Searches and prints candidate with highest employed hours
 	 */
 	public static void highestEmplHrs() {
 		int emplHrs = 0;
@@ -261,8 +303,9 @@ public class StudentDatabase {
 			System.out.println("There are no students in the database" + "\n");
 		}
 	}
+	
 	/** SORTING
-	 * 
+	 * Sorts in descending order of highest average
 	 */
 	public static void sortAvg() {
 		int i, j;
@@ -277,8 +320,9 @@ public class StudentDatabase {
 		}
 		System.out.println("Database successfully sorted by Average" + "\n");
 	}
+	
 	/** SORTING
-	 * 
+	 * Sorts in descending order of volunteer hours
 	 */
 	public static void sortVolHrs() {
 		int i, j;
@@ -305,15 +349,17 @@ public class StudentDatabase {
 			System.out.println();
 		}
 	}
+
 	/**
 	 * Removes all objects in the arrayList
 	 */
 	public static void clearList() {
 		stuList.clear();
 	}
+
 	/**
 	 * Compares the unique values for each grade: 9 = EQAO, 10 = OSSLT, 11 = Math Contest, 12 = University Average
-	 *  Prints out the first and last name of the student who has a greater score than / equal score to / less score than
+	 * Prints out the first and last name of the student who has a greater score than / equal score to / less score than
 	 */
 	public static void compareStudent() {
 		//Print out the input message
@@ -321,7 +367,7 @@ public class StudentDatabase {
 		//Get input
 		int stuNum1 = Integer.parseInt(in.nextLine());
 		//Print out input message
-		System.out.print("\n" + "Please enter the student number of your second student");
+		System.out.print("\n" + "Please enter the student number of your second student:");
 		//Get input
 		int stuNum2 = Integer.parseInt(in.nextLine());
 		//Find index of students in database
@@ -359,11 +405,10 @@ public class StudentDatabase {
 	 * FILE INPUT
 	 */
 	/**
-	 * 
+	 * Reads file name and loads all saved candidates in that file
 	 * @param fn
 	 */
 	public static void loadFile(String fn) {
-		// TODO Auto-generated method stub
 		double avgMarks=0;
 		int stuNum =0, size=0, ECs =0, volHrs = 0, hrsEmplyed = 0, special = 0;
 		String fName=null, lName=null, DOB = null, grade = null;
@@ -399,9 +444,7 @@ public class StudentDatabase {
 				else if(grade.equals("Grade12")) {
 					stuList.add(new Grade12(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 				}
-				else {
-					System.out.println(":( Incorrect file format");
-				}
+
 			}
 			//if file is not found
 		} catch( FileNotFoundException e){
@@ -419,11 +462,10 @@ public class StudentDatabase {
 	 * FILE OUTPUT
 	 */
 	/**
-	 * 
+	 * Saves the file with the desired name and stores all current candidates
 	 * @param fn
 	 */
 	public static void saveFile(String fn) {
-		// TODO Auto-generated method stub
 		System.out.println("Saving students to file: "+fn);
 		System.out.println();
 		File file = new File(fn); //sets file name
