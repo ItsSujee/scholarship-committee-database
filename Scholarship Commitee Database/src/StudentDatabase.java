@@ -378,20 +378,15 @@ public class StudentDatabase {
 			{
 				//Collects required fields 
 				fName = s.next();
-				System.out.println(fName);
 				lName  = s.next();
-				System.out.println(lName);
 				DOB = s.next();
-				System.out.println(DOB);
 				grade = s.next();
-				System.out.println(grade);
 				stuNum = Integer.parseInt(s.next());
 				avgMarks = Double.parseDouble(s.next());
 				volHrs = Integer.parseInt(s.next());
 				ECs= Integer.parseInt(s.next());
 				hrsEmplyed = Integer.parseInt(s.next());
 				special = Integer.parseInt(s.next());
-				System.out.println(special);
 				if(grade.equals("Grade9")) {
 					stuList.add(new Grade9(stuNum, fName, lName, DOB, avgMarks, volHrs, ECs, hrsEmplyed, special));
 				}
